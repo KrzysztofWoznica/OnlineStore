@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "/fwurCTSTGgyL8x3oPjR9BszyLoxbaORZqz57ICC9ug1bPhiT6++tR4kkQzNC7JFKb311w+6rz7ni5MnWd1WUQ==",
+  "success": true,
+  "projectFilePath": "D:\\ProgProjK\\eShop\\eShop\\src\\core\\eShop.Domain\\eShop.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Krzysiek\\.nuget\\packages\\erroror\\1.2.0\\erroror.1.2.0.nupkg.sha512"
+  ],
+  "logs": []
+}
