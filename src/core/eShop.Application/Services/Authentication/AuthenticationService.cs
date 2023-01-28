@@ -1,15 +1,12 @@
 ﻿using eShop.Application.Common.Authentication;
-using eShop.Application.Common.Interfaces.Persistence;
+using eShop.Domain.Persistence;
 using eShop.Application.Common.Validation;
 using eShop.Application.Interfaces;
 using eShop.Application.Interfaces.common;
 using eShop.Contracts.Authentication;
 using eShop.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+
 
 namespace eShop.Application.Services.Authentication
 {

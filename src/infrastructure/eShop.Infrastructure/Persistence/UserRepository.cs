@@ -1,4 +1,4 @@
-﻿using eShop.Application.Common.Interfaces.Persistence;
+﻿using eShop.Domain.Persistence;
 using eShop.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace eShop.Infrastructure.Persistence
 {
-    public class UserRepository : IUserRepository
+    internal class UserRepository : Repository<User, Guid>, IUserRepository
     {
-        static private readonly List<User> _users = new();
+        //static private readonly List<User> _users = new();
 
         public void AddUser(User user)
         {
-            _users.Add(user);    
+            _entities.Add(user);    
         }
 
         public User? GetUserByEmail(string email)
         {
-            return _users.SingleOrDefault(u => u.Email == email);  
+            return _entities.SingleOrDefault(u => u.Email == email);  
         }
     }
 }

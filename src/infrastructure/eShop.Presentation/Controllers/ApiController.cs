@@ -1,7 +1,7 @@
 ﻿using eShop.Application.Interfaces.common;
 using Microsoft.AspNetCore.Mvc;
 
-namespace eShop.Api.Controllers
+namespace eShop.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -11,7 +11,7 @@ namespace eShop.Api.Controllers
         protected IActionResult ActionResultFromServiceResponse<T>(ServiceResponse<T> result) where T : class
             => result.Status switch
             {
-                ServiceResponseStatus.Success => Ok(result.Entity),
+                ServiceResponseStatus.Success => Ok(result.Entity),              
                 ServiceResponseStatus.NotFound => NotFound(),
                 ServiceResponseStatus.ValidationError => UnprocessableEntity(result.Errors),
                 ServiceResponseStatus.Conflict => Conflict(result.Errors),
@@ -22,7 +22,7 @@ namespace eShop.Api.Controllers
         protected IActionResult ActionResultFromServiceResponse(ServiceResponse result)
             => result.Status switch
             {
-               ServiceResponseStatus.Success => NoContent(),
+               ServiceResponseStatus.Success => NoContent(),               
                ServiceResponseStatus.NotFound => NotFound(),
                ServiceResponseStatus.ValidationError => UnprocessableEntity(result.Errors),
                ServiceResponseStatus.Conflict => Conflict(result.Errors),

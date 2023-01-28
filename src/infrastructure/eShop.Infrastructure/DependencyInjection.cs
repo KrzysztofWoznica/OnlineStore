@@ -1,5 +1,5 @@
 ﻿using eShop.Application.Common.Authentication;
-using eShop.Application.Common.Interfaces.Persistence;
+using eShop.Domain.Persistence;
 using eShop.Application.Common.Services;
 using eShop.Infrastructure.Authentication;
 using eShop.Infrastructure.Persistence;
@@ -21,6 +21,7 @@ namespace eShop.Infrastructure
             services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
 
             return services;
         }

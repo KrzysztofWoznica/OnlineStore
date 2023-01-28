@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace eShop.Infrastructure.Authentication
 {
-    public class JwtSettings
+    internal class JwtSettings
     {
         public const string SectionName = "JwtSettings";
         public string Secret { get; init; } = null!;

@@ -1,5 +1,6 @@
 ﻿using FluentValidation.Results;
 
+
 namespace eShop.Application.Interfaces.common
 {
     public class ServiceResponse
@@ -20,14 +21,14 @@ namespace eShop.Application.Interfaces.common
 
         public ServiceResponse(ValidationResult validationResult)
         {
-            this.Errors = validationResult.Errors
+            Errors = validationResult.Errors
                 .Select(p => new ServiceResponseValidationResult
                 {
                     Key = p.PropertyName,
                     ErrorCode = p.ErrorCode,
                     Message = p.ErrorMessage
                 });
-            this.Status = ServiceResponseStatus.ValidationError;
+            Status = ServiceResponseStatus.ValidationError;
         }
     }
 
@@ -38,7 +39,7 @@ namespace eShop.Application.Interfaces.common
 
         public ServiceResponse(T entity)
         {
-            Entity = entity;
+            Entity = entity;           
         }
 
         public ServiceResponse(T entity, ServiceResponseStatus status)
@@ -53,8 +54,6 @@ namespace eShop.Application.Interfaces.common
 
         public ServiceResponse(ValidationResult validationResult)
                 :base(validationResult) { } 
-
-
 
     
     }       

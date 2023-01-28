@@ -12,7 +12,7 @@ using System.Text;
 
 namespace eShop.Infrastructure.Authentication
 {
-    public class JwtTokenGenerator : IJwtTokenGenerator
+    internal class JwtTokenGenerator : IJwtTokenGenerator
     {
         private readonly JwtSettings _jwtSettings;
         private readonly IDateTimeProvider _dateTimeProvider;

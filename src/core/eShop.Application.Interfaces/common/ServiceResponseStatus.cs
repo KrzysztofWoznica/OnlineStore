@@ -2,7 +2,7 @@
 {
     public enum ServiceResponseStatus
     {
-        Success,
+        Success,       
         ValidationError,
         NotFound,
         Forbidden,

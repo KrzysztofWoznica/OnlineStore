@@ -3,7 +3,7 @@ using eShop.Contracts.Authentication;
 //using eShop.Application.Services.Authentication;
 using eShop.Application.Interfaces;
 
-namespace eShop.Api.Controllers
+namespace eShop.Presentation.Controllers
 {    
     [Route("api/auth")]      
     public class AuthenticationController : ApiController

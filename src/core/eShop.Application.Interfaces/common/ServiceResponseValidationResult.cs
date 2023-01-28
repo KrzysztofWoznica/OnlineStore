@@ -2,8 +2,8 @@
 {
     public class ServiceResponseValidationResult
     {
-        public string Key { get; set; }
-        public string Message { get; set; }
-        public string ErrorCode { get; set; }
+        public string Key { get; set; } = null!;
+        public string Message { get; set; } = null!;
+        public string ErrorCode { get; set; } = null!;
     }
 }
