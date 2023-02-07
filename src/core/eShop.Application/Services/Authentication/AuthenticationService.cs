@@ -91,7 +91,7 @@ namespace eShop.Application.Services.Authentication
                 Password = registerRequest.Password
             };
 
-            _userRepository.AddUser(newUser);
+            await _userRepository.CreateAndCommitAsync(newUser);
 
             var token = _jwtTokenGenerator.GenerateToken(newUser);        
 

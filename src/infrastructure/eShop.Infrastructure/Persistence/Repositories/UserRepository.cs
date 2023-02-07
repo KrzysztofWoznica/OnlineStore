@@ -5,21 +5,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using eShop.Infrastructure.Persistence.Data;
 
-namespace eShop.Infrastructure.Persistence
+namespace eShop.Infrastructure.Persistence.Repositories
 {
-    internal class UserRepository : Repository<User, Guid>, IUserRepository
+    internal class UserRepository : EFRepository<User, Guid>, IUserRepository
     {
         //static private readonly List<User> _users = new();
 
-        public void AddUser(User user)
+        UserRepository(ApplicationDbContext context): base(context)
         {
-            _entities.Add(user);    
+
         }
 
         public User? GetUserByEmail(string email)
         {
-            return _entities.SingleOrDefault(u => u.Email == email);  
+            return GetSet().SingleOrDefault(u => u.Email == email);
         }
     }
 }

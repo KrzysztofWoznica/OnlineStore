@@ -8,7 +8,7 @@ namespace eShop.Domain.Common
         where TEntity : EntityBase<TId>
         where TId : struct
     {             
-        Task<IEnumerable<TEntity>> ListAsync(Expression<Func<TEntity, bool>> expression = null!);
+        Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> expression = null!);
         Task<IEnumerable<TEntity>> GetAllFromIdListAsync(IEnumerable<TId> ids);
         Task<TEntity?> GetAsync(TId id);
 
