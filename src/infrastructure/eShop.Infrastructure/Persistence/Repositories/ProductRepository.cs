@@ -11,7 +11,7 @@ namespace eShop.Infrastructure.Persistence.Repositories
 {
     internal class ProductRepository : EFRepository<Product, Guid>, IProductRepository
     {
-        ProductRepository(ApplicationDbContext context) : base(context)
+        public ProductRepository(ApplicationDbContext context) : base(context)
         {
 
         }

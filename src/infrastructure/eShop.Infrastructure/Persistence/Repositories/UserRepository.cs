@@ -11,9 +11,8 @@ namespace eShop.Infrastructure.Persistence.Repositories
 {
     internal class UserRepository : EFRepository<User, Guid>, IUserRepository
     {
-        //static private readonly List<User> _users = new();
-
-        UserRepository(ApplicationDbContext context): base(context)
+        
+        public UserRepository(ApplicationDbContext context): base(context)
         {
 
         }

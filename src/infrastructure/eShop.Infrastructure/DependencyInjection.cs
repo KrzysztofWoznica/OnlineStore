@@ -23,15 +23,13 @@ namespace eShop.Infrastructure
             services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
 
 
-            services.AddScoped(typeof(IRepository<,>), typeof(EFRepository<,>));
+            //services.AddScoped(typeof(IRepository<,>), typeof(EFRepository<,>));
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
-
+             
 
             services.AddDbContext<ApplicationDbContext>(options =>
-            {
-                options.UseSqlServer(configuration.GetConnectionString("Default connection"));
-            });
+                     options.UseSqlServer(DbAccessConfiguration.SqlConnectionString()));
 
             return services;
         }
