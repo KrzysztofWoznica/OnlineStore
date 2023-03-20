@@ -1,11 +1,11 @@
-﻿using eShop.Domain.Persistence;
-using eShop.Domain.Entities;
+﻿using eShop.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using eShop.Infrastructure.Persistence.Data;
+using eShop.Application.Services.Authentication.Repositories;
 
 namespace eShop.Infrastructure.Persistence.Repositories
 {

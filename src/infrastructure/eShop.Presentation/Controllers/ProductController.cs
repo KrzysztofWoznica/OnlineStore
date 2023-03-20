@@ -1,5 +1,6 @@
 ﻿using eShop.Application.Interfaces;
 using eShop.Application.Interfaces.common;
+using eShop.Application.Interfaces.common.Paging;
 using eShop.Contracts.Products;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,6 +16,15 @@ namespace eShop.Presentation.Controllers
         {
             _productService = productService;
         }
+
+        [HttpGet]
+        [ProducesResponseType(200, Type=typeof(PagedList<ProductDto>))]
+        public async Task<IActionResult> GetProducts([FromQuery]FromQueryParameters pagingParameters)
+        {
+            var result = await _productService.GetProductsAsync(pagingParameters);
+            return ActionResultFromServiceResponse(result);
+        }
+
 
         [HttpGet("{id}")]
         [ProducesResponseType(200, Type = typeof(ProductDto))]

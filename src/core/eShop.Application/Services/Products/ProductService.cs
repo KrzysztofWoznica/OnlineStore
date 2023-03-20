@@ -1,9 +1,12 @@
-﻿using eShop.Application.Common.Validation;
+﻿using eShop.Application.Common.Paging;
+using eShop.Application.Common.Validation;
 using eShop.Application.Interfaces;
 using eShop.Application.Interfaces.common;
+using eShop.Application.Interfaces.common.Paging;
+using eShop.Application.Services.Products.Repositories;
 using eShop.Contracts.Products;
 using eShop.Domain.Entities;
-using eShop.Domain.Persistence;
+
 
 
 namespace eShop.Application.Services.Products
@@ -20,6 +23,35 @@ namespace eShop.Application.Services.Products
             _productRepository = productRepository;
             _validationService = validationService;
         }
+
+
+        public async Task<ServiceResponse<PagedList<ProductDto>>> GetProductsAsync(FromQueryParameters? parameters)
+        {
+            var pagingParameters = new PagingParameters()
+            {
+                PageNumber = parameters?.PageNumber ?? PagingConstants.DefaultPageNumber,
+                PageSize = parameters?.PageSize ?? PagingConstants.DefaultPageSize
+            };
+
+            var products = await _productRepository.GetAllPagedAsync(pagingParameters);
+
+            var productDtos = new PagedList<ProductDto>()
+            {
+                PageNumber = products.PageNumber,
+                PageSize = products.PageSize,
+                TotalCount = products.TotalCount,
+                Results = products.Results?.Select(p =>
+                    new ProductDto
+                    {
+                        Id = p.Id,
+                        Name = p.Name,
+                        Description = p.Description,
+                        Price = p.Price,
+                        ImageUri = p.ImageUri
+                    }) ?? new List<ProductDto>()
+            };
+            return new ServiceResponse<PagedList<ProductDto>>(productDtos);          
+        }          
 
         
         public async Task<ServiceResponse<ProductDto>> GetProductAsync(Guid id)

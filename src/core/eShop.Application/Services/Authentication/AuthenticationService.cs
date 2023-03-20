@@ -1,8 +1,8 @@
 ﻿using eShop.Application.Common.Authentication;
-using eShop.Domain.Persistence;
 using eShop.Application.Common.Validation;
 using eShop.Application.Interfaces;
 using eShop.Application.Interfaces.common;
+using eShop.Application.Services.Authentication.Repositories;
 using eShop.Contracts.Authentication;
 using eShop.Domain.Entities;
 

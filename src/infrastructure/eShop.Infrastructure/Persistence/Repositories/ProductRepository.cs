@@ -1,11 +1,11 @@
-﻿using eShop.Domain.Entities;
-using eShop.Domain.Persistence;
+﻿using eShop.Application.Common.Paging;
+using eShop.Application.Interfaces.common.Paging;
+using eShop.Application.Services.Products.Repositories;
+using eShop.Domain.Entities;
 using eShop.Infrastructure.Persistence.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using eShop.Infrastructure.Persistence.Extensions;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace eShop.Infrastructure.Persistence.Repositories
 {
@@ -14,6 +14,26 @@ namespace eShop.Infrastructure.Persistence.Repositories
         public ProductRepository(ApplicationDbContext context) : base(context)
         {
 
+        }
+
+        public async Task<PagedList<Product>> GetAllPagedAsync(PagingParameters parameters)
+        {
+            var query = this.GetSet()
+                .AsNoTracking();
+
+            var totalResults = await query.CountAsync();
+
+            var data = await query
+                .GetPage(parameters)
+                .ToListAsync();
+
+            return new PagedList<Product>()
+            {
+                PageNumber = parameters.PageNumber,
+                PageSize = parameters.PageSize,
+                TotalCount = totalResults,
+                Results = data
+            };
         }
     }
 }

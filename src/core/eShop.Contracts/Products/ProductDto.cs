@@ -1,6 +1,4 @@
-﻿
-
-namespace eShop.Contracts.Products
+﻿namespace eShop.Contracts.Products
 {
     public class ProductDto
     {

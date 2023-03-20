@@ -1,4 +1,5 @@
-﻿using eShop.Domain.Common;
+﻿using eShop.Application.Common.Persistence.Repositories;
+using eShop.Domain.Common;
 using eShop.Infrastructure.Persistence.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;

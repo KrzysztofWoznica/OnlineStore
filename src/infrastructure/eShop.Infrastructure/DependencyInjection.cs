@@ -1,5 +1,4 @@
 ﻿using eShop.Application.Common.Authentication;
-using eShop.Domain.Persistence;
 using eShop.Application.Common.Services;
 using eShop.Infrastructure.Authentication;
 using eShop.Infrastructure.Services;
@@ -9,6 +8,8 @@ using eShop.Infrastructure.Persistence.Repositories;
 using eShop.Infrastructure.Persistence.Data;
 using Microsoft.EntityFrameworkCore;
 using eShop.Domain.Common;
+using eShop.Application.Services.Products.Repositories;
+using eShop.Application.Services.Authentication.Repositories;
 
 namespace eShop.Infrastructure
 {
