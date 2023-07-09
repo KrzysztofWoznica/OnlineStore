@@ -78,7 +78,7 @@ namespace eShop.Infrastructure.Persistence.Repositories
             }
             catch (SqlException ex)
             {
-
+                await Task.Run(() => throw new Exception($"Couldn't save to databse"));
             }
         }
     }

@@ -1,3 +1,4 @@
+using eShop.Api.Middleware;
 using eShop.Application;
 using eShop.Infrastructure;
 
@@ -11,6 +12,8 @@ builder.Services.AddControllers().AddApplicationPart(typeof(Presentation.Assembl
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddLogging();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -19,7 +22,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-//app.UseMiddleware<ErrorHandlingMiddleware>();
+app.UseMiddleware<ErrorHandlingMiddleware>();
+
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
